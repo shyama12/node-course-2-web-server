@@ -1,7 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 var app = express();
 
@@ -61,6 +61,15 @@ res.render('about.hbs',{
 app.get('/bad',(req,res)=>{
 res.send({ errorMessage:'Unable to get response' });
 });
+
+//projects page rendering for '/projects' with hbs
+app.get('/projects',(req,res)=>{
+res.render('projects.hbs',{
+	pageTitle: 'Projects Page'
+});
+});
+
+
 //adding listener to listen to the app(binding app to a host in this case a localhost with port number 3000)
 
 //heroku sets port
